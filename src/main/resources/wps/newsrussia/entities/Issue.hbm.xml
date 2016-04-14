@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="wps.newsrussia.entities.Issue" table="issue" schema="newsrussia">
+        <id name="idIssueWps" column="id_issue_wps"/>
+        <property name="issueName" column="issue_name"/>
+        <property name="issueLastmodify" column="issue_lastmodify"/>
+        <property name="issueLang" column="issue_lang"/>
+        <property name="issueStatus" column="issue_status"/>
+        <property name="issueStart" column="issue_start"/>
+        <property name="issuePath" column="issue_path"/>
+        <property name="storageIdStorrage" column="storage_id_storrage"/>
+        <property name="genreId" column="genre_id"/>
+    </class>
+</hibernate-mapping>

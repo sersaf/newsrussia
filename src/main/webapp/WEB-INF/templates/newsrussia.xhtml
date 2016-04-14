@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+<h:head>
+    <title><ui:insert name="title"/></title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+</h:head>
+    <h:body styleClass="menubar-hoverable header-fixed ">
+        <f:facet name="last">
+            <!--<h:outputScript library="js" name="theme-default/bootstrap.css?1422792965" target="head"/>-->
+            <h:outputStylesheet library="css" name="theme-default/bootstrap.css" />
+            <h:outputStylesheet library="css" name="theme-default/materialadmin.css" />
+            <h:outputStylesheet library="css" name="theme-default/font-awesome.min.css" />
+            <h:outputStylesheet library="css" name="theme-default/material-design-iconic-font.min.css" />
+
+
+
+        </f:facet>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <h:outputScript library="js" name="libs/utils/html5shiv.js" target="head"/>
+            <h:outputScript library="js" name="libs/utils/respond.min.js" target="head"/>
+        <![endif]-->
+            <header id="header">
+                <ui:include src="/WEB-INF/templates/header.xhtml"/>
+            </header>
+
+        <div id="base">
+
+            <!-- BEGIN OFFCANVAS LEFT -->
+            <div class="offcanvas">
+            </div><!--end .offcanvas-->
+            <!-- END OFFCANVAS LEFT -->
+
+            <ui:include src="/WEB-INF/templates/searchTextImg.xhtml"/>
+            <ui:include src="/WEB-INF/templates/rightbar.xhtml"/>
+
+            <ui:include src="/WEB-INF/templates/menubar.xhtml"/>
+        </div>
+
+
+        <!-- BEGIN JAVASCRIPT -->
+        <h:outputScript library="js" name="libs/jquery/jquery-1.11.2.min.js" target="head" />
+        <h:outputScript library="js" name="libs/jquery/jquery-migrate-1.2.1.min.js" target="head"/>
+        <h:outputScript library="js" name="libs/bootstrap/bootstrap.min.js" target="head"/>
+        <h:outputScript library="js" name="libs/spin.js/spin.min.js" target="head"/>
+        <h:outputScript library="js" name="libs/autosize/jquery.autosize.min.js" target="head"/>
+        <h:outputScript library="js" name="libs/nanoscroller/jquery.nanoscroller.min.js" target="head" />
+        <h:outputScript library="js" name="core/source/App.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppNavigation.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppOffcanvas.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppCard.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppForm.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppNavSearch.js" target="head"/>
+        <h:outputScript library="js" name="core/source/AppVendor.js" target="head"/>
+        <h:outputScript library="js" name="core/demo/Demo.js" target="head"/>
+        <!-- END JAVASCRIPT -->
+
+    </h:body>
+</f:view>
+
+
+
+</html>

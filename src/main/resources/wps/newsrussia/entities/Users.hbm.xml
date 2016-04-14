@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="wps.newsrussia.entities.Users" table="users" schema="newsrussia">
+        <id name="id" column="ID"/>
+        <property name="userLogin" column="user_login"/>
+        <property name="userPass" column="user_pass"/>
+        <property name="userNickname" column="user_nickname"/>
+        <property name="userEmail" column="user_email"/>
+        <property name="groupIdGroup" column="group_id_group"/>
+        <property name="userRegistered" column="user_registered"/>
+        <property name="userStatus" column="user_status"/>
+        <property name="displayName" column="display_name"/>
+    </class>
+</hibernate-mapping>

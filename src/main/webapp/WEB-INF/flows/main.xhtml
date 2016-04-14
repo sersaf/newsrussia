@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <ui:composition template="/WEB-INF/templates/newsrussia.xhtml">
+
+
+<ui:define name="title">
+    #{msg.book_list}
+</ui:define>
+        
+        <ui:define name="content">
+
+<h:form id="journals_form">
+
+
+                        <!--<ui:repeat value="#{newsrussiaFacade.journals}" var="b">-->
+                            <!--<div class="list-results list-results-underlined">-->
+                                <!--<div class="col-xs-12">-->
+
+                                    <!--<p:graphicImage value="#{resource['images:img11.jpg']}" styleClass="pull-left width-3" alt="img11"/>-->
+                                    <!--<p>-->
+                                        <!--<a class="text-medium text-lg text-primary" href="#">#{b.journalName}</a><br/>-->
+                                        <!--<a class="opacity-75" href="#">#{b.journalLinkToPdf}</a>-->
+                                    <!--</p>-->
+                                    <!--<div class="contain-xs pull-left">-->
+                                        <!--#{b.genreId}-->
+                                    <!--</div>-->
+                                <!--</div>&lt;!&ndash;end .col &ndash;&gt;-->
+
+                            <!--</div>&lt;!&ndash;end .list-results &ndash;&gt;-->
+                        <!--</ui:repeat>-->
+
+    <p:dataGrid rowIndexVar="rowIndex" columns="2" lazy="true" var="b" value="${newsrussiaFacade.journals}"  id="booksList" styleClass="list-results list-results-underlined"  paginator="true" rows="4" paginatorPosition="bottom"
+                rowsPerPageTemplate="4,10,20" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"  paginatorAlwaysVisible="true" emptyMessage="">
+
+
+        <div class="item">
+
+            <div class="image-info">
+
+                <h:outputLink styleClass="content_link" target="_blank">
+                    <p:graphicImage width="110" height="150"/>
+                </h:outputLink>
+
+
+
+            </div>
+
+
+
+            <div class="info">
+                <div class="book_name">
+                    <h:outputLink id="bookName" styleClass="title" target="_blank">
+                        #{b.journalName}
+                    </h:outputLink>
+
+                </div>
+                <span>#{b.genreId}</span>
+                <p><strong>#{msg.page_count}:</strong> #{b.idJournal}</p>
+                <p><strong>#{msg.publisher}</strong> #{b.journalName}</p>
+                <p><strong>#{msg.publish_year}</strong> #{b.journalLinkToPdf} г.</p>
+                <p><strong>#{msg.isbn}</strong> #{b.journalDateUpload}</p>
+
+            </div>
+
+
+            <h:outputLink styleClass="mr" target="_blank">
+                <p class="read">#{msg.read}</p>
+            </h:outputLink>
+
+            <h:outputLink styleClass="mr" target="_blank">
+                <p class="download">#{msg.download}</p>
+            </h:outputLink>
+
+            <p:commandLink styleClass="mr" title="#{msg.edit_book}">
+                <p class="edit">#{msg.edit}</p>
+            </p:commandLink>
+
+            <p:commandLink styleClass="delete-button" title="#{msg.delete_book}" type="button">
+                <p class="delete">#{msg.delete}</p>
+            </p:commandLink>
+
+
+        </div>
+
+
+
+
+    </p:dataGrid>
+
+
+</h:form>
+        </ui:define>
+    </ui:composition>
+
+
+
+</f:view>
+</html>

@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Facelet Title</title>
+
+</h:head>
+<h:body>
+    <ui:composition>
+
+        <div class="headerbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="headerbar-left">
+                <ul class="header-nav header-nav-options">
+                    <li class="header-nav-brand" >
+                        <div class="brand-holder">
+                            <a href="newsrussia.xhtml">
+                                <span class="text-lg text-bold text-primary">What The Paper Say</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                            <i class="fa fa-bars"/>
+                        </a>
+
+                        <!--<h:outputLink value="javascript:void(0);" styleClass="btn btn-icon-toggle menubar-toggle">-->
+                            <!--<i class="fa fa-bars"/>-->
+                        <!--</h:outputLink>-->
+
+                        <!--<script language="javascript" type="javascript">-->
+                            <!--document.getElementsByClassName("btn btn-icon-toggle menubar-toggle").setAttribute("data-toggle","menubar");-->
+                        <!--</script>-->
+
+                    </li>
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="headerbar-right">
+                <ul class="header-nav header-nav-options">
+                    <li>
+                        <!-- Search form -->
+                        <!--<h:form styleClass="navbar-search" role="search">-->
+                            <!--<div class="form-group">-->
+
+                                <!--<input type="text" class="form-control" name="headerSearch" id="search"/>-->
+                                <!--&lt;!&ndash;<h:inputText styleClass="form-control" id="headerSearch"/>&ndash;&gt;-->
+
+                                <!--<script language="javascript" type="javascript">-->
+                                    <!--document.getElementById("search").setAttribute("placeholder","#{msg.search_book}");-->
+                                <!--</script>-->
+
+                            <!--</div>-->
+
+                            <!--<button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"/> </button>-->
+
+                        <!--</h:form>-->
+
+                            <ui:include src="/WEB-INF/templates/locales.xhtml"/>
+
+
+
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+                            <i class="fa fa-bell"/><sup class="badge style-danger">4</sup>
+                        </a>
+
+                        <ul class="dropdown-menu animation-expand">
+                            <li class="dropdown-header">Today's messages</li>
+                            <li>
+                                <h:outputLink value="javascript:void(0);" styleClass="alert alert-callout alert-warning">
+                                    <h:graphicImage library="images" name="avatar2.jpg" styleClass="pull-right img-circle dropdown-avatar"/>
+                                    <strong>Alex Anistor</strong><br/>
+                                    <small>Testing functionality...</small>
+                                </h:outputLink>
+                            </li>
+                            <li>
+                                <h:outputLink value="javascript:void(0);" styleClass="alert alert-callout alert-info">
+                                    <h:graphicImage library="images" name="avatar3.jpg" styleClass="pull-right img-circle dropdown-avatar"/>
+                                    <strong>Alicia Adell</strong><br/>
+                                    <small>Reviewing last changes...</small>
+                                </h:outputLink>
+                            </li>
+
+                            <li class="dropdown-header">Options</li>
+
+                            <li>
+                                <h:outputLink value="#">
+                                    <h:outputText value="View all messages" />
+                                    <span class="pull-right"><i class="fa fa-arrow-right"/></span>
+                                </h:outputLink>
+                            </li>
+
+                            <li>
+                                <h:outputLink value="#">
+                                    <h:outputText value="Mark as read" />
+                                    <span class="pull-right"><i class="fa fa-arrow-right"/></span>
+                                </h:outputLink>
+                            </li>
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                    <li class="dropdown hidden-xs">
+
+                        <a href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+                            <i class="fa fa-area-chart"/>
+                        </a>
+
+
+
+                        <ul class="dropdown-menu animation-expand">
+                            <li class="dropdown-header">Server load</li>
+                            <li class="dropdown-progress">
+                                <h:outputLink value="javascript:void(0);">
+                                    <div class="dropdown-label">
+                                        <span class="text-light">Server load <strong>Today</strong></span>
+                                        <strong class="pull-right">93%</strong>
+                                    </div>
+                                    <div class="progress"><div class="progress-bar progress-bar-danger" style="width: 93%"></div></div>
+                                </h:outputLink>
+                            </li><!--end .dropdown-progress -->
+                            <li class="dropdown-progress">
+                                <h:outputLink value="javascript:void(0);">
+                                    <div class="dropdown-label">
+                                        <span class="text-light">Server load <strong>Yesterday</strong></span>
+                                        <strong class="pull-right">30%</strong>
+                                    </div>
+                                    <div class="progress"><div class="progress-bar progress-bar-success" style="width: 30%"></div></div>
+                                </h:outputLink>
+
+                            </li><!--end .dropdown-progress -->
+                            <li class="dropdown-progress">
+
+                                <h:outputLink value="javascript:void(0);">
+                                    <div class="dropdown-label">
+                                        <span class="text-light">Server load <strong>Lastweek</strong></span>
+                                        <strong class="pull-right">74%</strong>
+                                    </div>
+                                    <div class="progress"><div class="progress-bar progress-bar-warning" style="width: 74%"></div></div>
+                                </h:outputLink>
+
+                            </li><!--end .dropdown-progress -->
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                </ul><!--end .header-nav-options -->
+                <ul class="header-nav header-nav-profile">
+                    <li class="dropdown">
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                        <!--<h:outputLink value="javascript:void(0);" styleClass="dropdown-toggle ink-reaction" data-toggle="dropdown">-->
+                            <!--<h:graphicImage library="images" name="avatar1.jpg" />-->
+                            <!--<span class="profile-info">-->
+									<!--Daniel Johnson-->
+									<!--<small>Administrator</small>-->
+								<!--</span>-->
+                        <!--</h:outputLink>-->
+                        <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                            <h:graphicImage library="images" name="avatar1.jpg" />
+								<span class="profile-info">
+									Sergey Safonov
+									<small>#{msg.admin}</small>
+								</span>
+                        </a>
+                        <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+                        <ul class="dropdown-menu animation-dock">
+                            <li class="dropdown-header">Config</li>
+                            <li><h:outputLink value="#">My profile</h:outputLink></li>
+                            <li><h:outputLink value="#">My blog <span class="badge style-danger pull-right">16</span></h:outputLink></li>
+                            <li><h:outputLink value="#">My appointments</h:outputLink></li>
+                            <li class="divider"/>
+                            <li><h:outputLink value="#"><i class="fa fa-fw fa-lock"/>Lock</h:outputLink></li>
+                            <li><h:outputLink value="#"><i class="fa fa-fw fa-power-off text-danger"/>Logout</h:outputLink></li>
+
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                </ul><!--end .header-nav-profile -->
+                <ul class="header-nav header-nav-toggle">
+                    <li>
+   <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+                        <!--<h:outputLink value="javascript:void(0);" styleClass="btn btn-icon-toggle btn-default" data-toggle="offcanvas" data-backdrop="false">-->
+                            <!--<i class="fa fa-ellipsis-v"/>-->
+                        <!--</h:outputLink>-->
+
+                        <a class="btn btn-icon-toggle btn-default" href="#offcanvas-search" data-toggle="offcanvas" data-backdrop="false">
+                            <i class="fa fa-ellipsis-v"/>
+                        </a>
+   <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+
+                    </li>
+                </ul><!--end .header-nav-toggle -->
+            </div><!--end #header-navbar-collapse -->
+        </div>
+    </ui:composition>
+</h:body>
+</html>
