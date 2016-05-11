@@ -4,11 +4,14 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
     <view-state id="main">
+        <transition on="searchByText">
+            <evaluate expression="newsrussiaFacade.searchJournalsByText()" />
+        </transition>
 
-        <on-render>
-            <evaluate expression="journalDAOImpl.journal"/>
-            <!--<evaluate expression="bookDAOImpl.books"/>-->
-        </on-render>
+
+        <transition on="searchByGenre">
+            <evaluate expression="newsrussiaFacade.searchJournalsByGenre()" />
+        </transition>
 
     </view-state>
 

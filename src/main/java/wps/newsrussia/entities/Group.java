@@ -1,7 +1,7 @@
 package wps.newsrussia.entities;
 
 /**
- * Created by sergejsafonov on 10.04.16.
+ * Created by sergejsafonov on 11.05.16.
  */
 public class Group {
     private int idGroup;
@@ -41,13 +41,5 @@ public class Group {
         int result = idGroup;
         result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "idGroup=" + idGroup +
-                ", groupName='" + groupName + '\'' +
-                '}';
     }
 }

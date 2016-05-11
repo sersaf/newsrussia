@@ -1,19 +1,18 @@
 package wps.newsrussia.entities;
 
 /**
- * Created by sergejsafonov on 10.04.16.
+ * Created by sergejsafonov on 11.05.16.
  */
 public class Storage {
-    private int idStorrage;
+    private int idStorage;
     private String issueType;
-    private String path;
 
-    public int getIdStorrage() {
-        return idStorrage;
+    public int getIdStorage() {
+        return idStorage;
     }
 
-    public void setIdStorrage(int idStorrage) {
-        this.idStorrage = idStorrage;
+    public void setIdStorage(int idStorage) {
+        this.idStorage = idStorage;
     }
 
     public String getIssueType() {
@@ -24,14 +23,6 @@ public class Storage {
         this.issueType = issueType;
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,18 +30,16 @@ public class Storage {
 
         Storage storage = (Storage) o;
 
-        if (idStorrage != storage.idStorrage) return false;
+        if (idStorage != storage.idStorage) return false;
         if (issueType != null ? !issueType.equals(storage.issueType) : storage.issueType != null) return false;
-        if (path != null ? !path.equals(storage.path) : storage.path != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = idStorrage;
+        int result = idStorage;
         result = 31 * result + (issueType != null ? issueType.hashCode() : 0);
-        result = 31 * result + (path != null ? path.hashCode() : 0);
         return result;
     }
 }

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="wps.newsrussia.entities.Video" table="video" schema="newsrussia">
+    <class name="wps.newsrussia.entities.VideoWps" table="video_wps" schema="newsrussia">
         <id name="idVideoWps" column="id_video_wps"/>
         <property name="videoName" column="video_name"/>
         <property name="videoDate" column="video_date"/>
@@ -12,7 +12,7 @@
         <property name="videoDescription" column="video_description"/>
         <property name="videoAnnotation" column="video_annotation"/>
         <property name="videoPath" column="video_path"/>
-        <property name="storageIdStorrage" column="storage_id_storrage"/>
-        <property name="genreId" column="genre_id"/>
+        <property name="genreIdGenre" column="Genre_id_genre"/>
+        <property name="storageIdStorage" column="storage_id_storage"/>
     </class>
 </hibernate-mapping>

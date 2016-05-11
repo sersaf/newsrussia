@@ -4,9 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="wps.newsrussia.entities.Audio" table="audio" schema="newsrussia">
-        <id name="idAudio" column="id_audio"/>
+    <class name="wps.newsrussia.entities.AudioWps" table="audio_wps" schema="newsrussia">
+        <id name="idRadioWps" column="id_radio_wps"/>
         <property name="audioDate" column="audio_date"/>
         <property name="audioType" column="audio_type"/>
+        <property name="idStorage" column="id_storage"/>
     </class>
 </hibernate-mapping>

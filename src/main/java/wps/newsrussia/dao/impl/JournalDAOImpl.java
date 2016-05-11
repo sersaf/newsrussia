@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import wps.newsrussia.entities.Genre;
-import wps.newsrussia.entities.Journal;
+import wps.newsrussia.entities.JournalWps;
 import wps.newsrussia.dao.interfaces.JournalDAO;
 
 import java.util.Date;
@@ -16,6 +16,7 @@ import java.util.List;
 
 @Component
 public class JournalDAOImpl implements JournalDAO {
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -28,15 +29,16 @@ public class JournalDAOImpl implements JournalDAO {
         journalProjection.add(Projections.property("journalLinkToPdf"), "journalLinkToPdf");
         journalProjection.add(Projections.property("journalDateUpload"), "journalDateUpload");
         journalProjection.add(Projections.property("journalDate"), "journalDate");
-        journalProjection.add(Projections.property("genreId"), "genreId");
-        journalProjection.add(Projections.property("journalStorageId"), "journalStorageId");
+        journalProjection.add(Projections.property("genreIdGenre"), "genreIdGenre");
+        journalProjection.add(Projections.property("storageIdStorage"), "storageIdStorage");
         journalProjection.add(Projections.property("journalIssue"), "journalIssue");
+        journalProjection.add(Projections.property("journalCover"), "journalCover");
     }
 
 
 
     private DetachedCriteria createJournalCriteria(){
-        DetachedCriteria journalListCriteria = DetachedCriteria.forClass(Journal.class, "b");
+        DetachedCriteria journalListCriteria = DetachedCriteria.forClass(JournalWps.class, "b");
         createAliases(journalListCriteria);
         return journalListCriteria;
     }
@@ -44,44 +46,47 @@ public class JournalDAOImpl implements JournalDAO {
 
     @Transactional
     @Override
-    public List<Journal> getJournal() {
+    public List<JournalWps> getJournal() {
 
-        List<Journal> journals = createJournalList(createJournalCriteria());
+        List<JournalWps> journals = createJournalList(createJournalCriteria());
 
         return journals;
     }
 
     @Transactional
     @Override
-    public List<Journal> getJournal(String journalname) {
-        List<Journal> journals = createJournalList(createJournalCriteria().add(Restrictions.ilike("b.journalName",journalname, MatchMode.ANYWHERE)));
+    public List<JournalWps> getJournal(String journalname) {
+        List<JournalWps> journals = createJournalList(createJournalCriteria().add(Restrictions.ilike("b.journalName",journalname, MatchMode.ANYWHERE)));
         return journals;
     }
 
+
+
     @Transactional
     @Override
-    public List<Journal> getJournal(Date date_upload) {
+    public List<JournalWps> getJournal(Date date_upload) {
         return null;
     }
 
     @Transactional
     @Override
-    public List<Journal> getJournal(Genre genre) {
+    public List<JournalWps> getJournal(Genre genre) {
 
-        List<Journal> journals = createJournalList(createJournalCriteria().add(Restrictions.ilike("genre.genreName", genre.getGenreName(), MatchMode.ANYWHERE)));
+        List<JournalWps> journals = createJournalList(createJournalCriteria().add(Restrictions.ilike("genre.genreName", genre.getGenreName(), MatchMode.ANYWHERE)));
         return journals;
     }
 
 
     private void createAliases(DetachedCriteria criteria) {
-        criteria.createAlias("b.genreId", "genreId");
-        criteria.createAlias("b.journalStorageId", "storageId");
+        criteria.createAlias("b.storageIdStorage", "storage_id_storage");
+        criteria.createAlias("b.genreIdGenre", "Genre_id_genre");
+
     }
 
 
-    private List<Journal> createJournalList(DetachedCriteria bookListCriteria) {
+    private List<JournalWps> createJournalList(DetachedCriteria bookListCriteria) {
         Criteria criteria = bookListCriteria.getExecutableCriteria(sessionFactory.getCurrentSession());
-        criteria.addOrder(Order.asc("b.genreId")).setProjection(journalProjection).setResultTransformer(Transformers.aliasToBean(Journal.class));
+        criteria.addOrder(Order.asc("b.journalName")).setProjection(journalProjection).setResultTransformer(Transformers.aliasToBean(JournalWps.class));
         return criteria.list();
     }
 

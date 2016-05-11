@@ -55,21 +55,7 @@
                     <div class="card tabs-left style-default-light">
 
                         <!-- BEGIN SEARCH BAR -->
-                        <div class="card-body style-primary no-y-padding">
-                            <h:form class="form form-inverse">
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg">
-                                        <div class="input-group-content">
-                                            <input type="text" class="form-control" id="searchInput" placeholder="Enter your search here"/>
-                                            <div class="form-control-line"></div>
-                                        </div>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-floating-action btn-default-bright" type="button"><i class="fa fa-search"/></button>
-                                        </div>
-                                    </div>
-                                </div><!--end .form-group -->
-                            </h:form>
-                        </div><!--end .card-body -->
+                        <ui:include src="/WEB-INF/templates/search.xhtml"/>
                         <!-- END SEARCH BAR -->
 
                         <!-- BEGIN TAB RESULTS -->
@@ -112,24 +98,12 @@
 
                                         <!-- BEGIN RESULT LIST -->
 
-
-                                        <ui:insert name="content"/>
-
+                                        <div class="list-results list-results-underlined">
+                                            <ui:insert name="content"/>
+                                        </div>
 
                                         <!-- END RESULTS LIST -->
 
-                                        <!-- BEGIN PAGING -->
-                                        <!--<ul class="pagination">-->
-                                            <!--<li class="disabled"><a href="#">«</a></li>-->
-                                            <!--<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>-->
-                                            <!--<li><a href="#">2</a></li>-->
-                                            <!--<li><a href="#">3</a></li>-->
-                                            <!--<li><a href="#">4</a></li>-->
-                                            <!--<li><a href="#">5</a></li>-->
-                                            <!--<li><a href="#">»</a></li>-->
-                                        <!--</ul>-->
-
-                                        <!-- END PAGING -->
 
                                     </div><!--end .col -->
                                 </div><!--end .row -->

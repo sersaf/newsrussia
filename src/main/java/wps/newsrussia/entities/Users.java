@@ -3,7 +3,7 @@ package wps.newsrussia.entities;
 import java.sql.Date;
 
 /**
- * Created by sergejsafonov on 10.04.16.
+ * Created by sergejsafonov on 11.05.16.
  */
 public class Users {
     private long id;

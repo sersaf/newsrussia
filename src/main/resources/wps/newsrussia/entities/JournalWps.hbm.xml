@@ -4,24 +4,23 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="wps.newsrussia.entities.Journal" table="journal" schema="newsrussia">
+    <class name="wps.newsrussia.entities.JournalWps" table="journal_wps" schema="newsrussia">
         <id name="idJournal" column="id_journal">
-             <generator class="identity"/>
+            <generator class="identity"/>
         </id>
 
-
-
-        <many-to-one name="genreId" column="genre_id"
+        <many-to-one name="genreIdGenre" column="Genre_id_genre"
                      class="wps.newsrussia.entities.Genre" lazy="false" fetch="join" not-null="true"/>
 
-        <many-to-one name="journalStorageId" column="journal_storage_id"
+        <many-to-one name="storageIdStorage" column="storage_id_storage"
                      class="wps.newsrussia.entities.Storage" lazy="false" fetch="join"  not-null="true"/>
-
         <property name="journalName" column="journal_name"/>
         <property name="journalLinkToPdf" column="journal_link_to_pdf"/>
         <property name="journalLinkToTxt" column="journal_link_to_txt"/>
         <property name="journalDateUpload" column="journal_date_upload"/>
         <property name="journalDate" column="journal_date"/>
         <property name="journalIssue" column="journal_issue"/>
+        <property name="journalCover" column="journal_cover" />
     </class>
 </hibernate-mapping>
+

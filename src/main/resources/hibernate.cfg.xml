@@ -7,13 +7,15 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping resource="wps/newsrussia/entities/Audio.hbm.xml"/>
+    <property name="connection.url">jdbc:mysql://localhost:3306/newsrussia</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <mapping resource="wps/newsrussia/entities/Genre.hbm.xml"/>
     <mapping resource="wps/newsrussia/entities/Group.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/Issue.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/Journal.hbm.xml"/>
     <mapping resource="wps/newsrussia/entities/Storage.hbm.xml"/>
     <mapping resource="wps/newsrussia/entities/Users.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/Video.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/AudioWps.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/IssueWps.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/JournalWps.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/VideoWps.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,11 +1,12 @@
 package wps.newsrussia.entities;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 /**
- * Created by sergejsafonov on 10.04.16.
+ * Created by sergejsafonov on 11.05.16.
  */
-public class Issue {
+public class IssueWps {
     private long idIssueWps;
     private String issueName;
     private Date issueLastmodify;
@@ -13,8 +14,9 @@ public class Issue {
     private byte issueStatus;
     private String issueStart;
     private String issuePath;
-    private int storageIdStorrage;
-    private long genreId;
+    private long genreIdGenre;
+    private int storageIdStorage;
+    private byte[] issueCover;
 
     public long getIdIssueWps() {
         return idIssueWps;
@@ -72,20 +74,28 @@ public class Issue {
         this.issuePath = issuePath;
     }
 
-    public int getStorageIdStorrage() {
-        return storageIdStorrage;
+    public long getGenreIdGenre() {
+        return genreIdGenre;
     }
 
-    public void setStorageIdStorrage(int storageIdStorrage) {
-        this.storageIdStorrage = storageIdStorrage;
+    public void setGenreIdGenre(long genreIdGenre) {
+        this.genreIdGenre = genreIdGenre;
     }
 
-    public long getGenreId() {
-        return genreId;
+    public int getStorageIdStorage() {
+        return storageIdStorage;
     }
 
-    public void setGenreId(long genreId) {
-        this.genreId = genreId;
+    public void setStorageIdStorage(int storageIdStorage) {
+        this.storageIdStorage = storageIdStorage;
+    }
+
+    public byte[] getIssueCover() {
+        return issueCover;
+    }
+
+    public void setIssueCover(byte[] issueCover) {
+        this.issueCover = issueCover;
     }
 
     @Override
@@ -93,18 +103,19 @@ public class Issue {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Issue issue = (Issue) o;
+        IssueWps issueWps = (IssueWps) o;
 
-        if (idIssueWps != issue.idIssueWps) return false;
-        if (issueStatus != issue.issueStatus) return false;
-        if (storageIdStorrage != issue.storageIdStorrage) return false;
-        if (genreId != issue.genreId) return false;
-        if (issueName != null ? !issueName.equals(issue.issueName) : issue.issueName != null) return false;
-        if (issueLastmodify != null ? !issueLastmodify.equals(issue.issueLastmodify) : issue.issueLastmodify != null)
+        if (idIssueWps != issueWps.idIssueWps) return false;
+        if (issueStatus != issueWps.issueStatus) return false;
+        if (genreIdGenre != issueWps.genreIdGenre) return false;
+        if (storageIdStorage != issueWps.storageIdStorage) return false;
+        if (issueName != null ? !issueName.equals(issueWps.issueName) : issueWps.issueName != null) return false;
+        if (issueLastmodify != null ? !issueLastmodify.equals(issueWps.issueLastmodify) : issueWps.issueLastmodify != null)
             return false;
-        if (issueLang != null ? !issueLang.equals(issue.issueLang) : issue.issueLang != null) return false;
-        if (issueStart != null ? !issueStart.equals(issue.issueStart) : issue.issueStart != null) return false;
-        if (issuePath != null ? !issuePath.equals(issue.issuePath) : issue.issuePath != null) return false;
+        if (issueLang != null ? !issueLang.equals(issueWps.issueLang) : issueWps.issueLang != null) return false;
+        if (issueStart != null ? !issueStart.equals(issueWps.issueStart) : issueWps.issueStart != null) return false;
+        if (issuePath != null ? !issuePath.equals(issueWps.issuePath) : issueWps.issuePath != null) return false;
+        if (!Arrays.equals(issueCover, issueWps.issueCover)) return false;
 
         return true;
     }
@@ -118,8 +129,9 @@ public class Issue {
         result = 31 * result + (int) issueStatus;
         result = 31 * result + (issueStart != null ? issueStart.hashCode() : 0);
         result = 31 * result + (issuePath != null ? issuePath.hashCode() : 0);
-        result = 31 * result + storageIdStorrage;
-        result = 31 * result + (int) (genreId ^ (genreId >>> 32));
+        result = 31 * result + (int) (genreIdGenre ^ (genreIdGenre >>> 32));
+        result = 31 * result + storageIdStorage;
+        result = 31 * result + Arrays.hashCode(issueCover);
         return result;
     }
 }

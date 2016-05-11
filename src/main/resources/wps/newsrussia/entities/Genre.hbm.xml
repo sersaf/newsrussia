@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="wps.newsrussia.entities.Genre" table="genre" schema="newsrussia">
+    <class name="wps.newsrussia.entities.Genre" table="Genre" schema="newsrussia">
         <id name="idGenre" column="id_genre"/>
         <property name="genreName" column="genre_name"/>
         <property name="parent" column="parent"/>

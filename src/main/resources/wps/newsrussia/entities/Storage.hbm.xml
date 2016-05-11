@@ -5,8 +5,7 @@
 <hibernate-mapping>
 
     <class name="wps.newsrussia.entities.Storage" table="storage" schema="newsrussia">
-        <id name="idStorrage" column="id_storrage"/>
+        <id name="idStorage" column="id_storage"/>
         <property name="issueType" column="issue_type"/>
-        <property name="path" column="path"/>
     </class>
 </hibernate-mapping>

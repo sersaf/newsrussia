@@ -1,0 +1,63 @@
+.item {
+
+}
+
+.journal_image, .info, .action-list {
+    margin: 0;
+    padding: 0;
+}
+.action-list a {
+    text-decoration: none;
+}
+
+.action-list .action-list-hover {
+    line-height: 32px;
+    padding: 10px;
+    text-align: center;
+    background: #0aa89e;
+    color: #ffffff;
+}
+.action-list .action-list-hover .fa {
+    font-size: 24px;
+    display: block;
+}
+.action-list .action-list-hover:hover {
+    background: #ffffff;
+    cursor: default;
+    color: #000;
+}
+
+.info .journal_name {
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+.info .journal_name .category {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.info .journal_info {
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.info .journal_info p {
+    line-height: 10px
+}
+
+.info .journal_info p span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ui-paginator {
+    margin:0;
+    padding:0;
+    text-align: left;
+}
+
+span.ui-button-text{
+    margin-top: -15px;
+    margin-left: -7px;
+}

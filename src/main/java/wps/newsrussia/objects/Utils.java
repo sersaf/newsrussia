@@ -42,5 +42,7 @@ public class Utils {
         this.searchTypeList = searchTypeList;
     }
 
-
+    public void setSelectedSearchType(SearchType selectedSearchType) {
+        this.selectedSearchType = selectedSearchType;
+    }
 }
