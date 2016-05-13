@@ -4,6 +4,8 @@
  */
 package wps.newsrussia.servlets;
 
+import sun.tools.asm.Cover;
+import wps.newsrussia.entities.JournalCovers;
 import wps.newsrussia.objects.NewsrussiaFacade;
 
 import javax.servlet.ServletException;
@@ -38,8 +40,8 @@ public class ShowImage extends HttpServlet {
         try {
             int index = Integer.valueOf(request.getParameter("index"));
             NewsrussiaFacade newsrussiaFacade = (NewsrussiaFacade) getServletContext().getAttribute("newsrussiaFacade");
-            String image = newsrussiaFacade.getJournals().get(index).getJournalCover();
-            FileInputStream fis = new FileInputStream(new File(image));
+            JournalCovers image = newsrussiaFacade.getJournals().get(index).getJournalCoversId();
+            FileInputStream fis = new FileInputStream(new File(image.getImg()));
             byte[] img = new byte[fis.available()];
             fis.read(img, 0, fis.available());
 

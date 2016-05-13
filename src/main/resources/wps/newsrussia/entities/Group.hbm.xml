@@ -5,7 +5,11 @@
 <hibernate-mapping>
 
     <class name="wps.newsrussia.entities.Group" table="group" schema="newsrussia">
-        <id name="idGroup" column="id_group"/>
-        <property name="groupName" column="group_name"/>
+        <id name="idGroup">
+            <column name="id_group" sql-type="int(11)"/>
+        </id>
+        <property name="groupName">
+            <column name="group_name" sql-type="varchar(45)" length="45"/>
+        </property>
     </class>
 </hibernate-mapping>

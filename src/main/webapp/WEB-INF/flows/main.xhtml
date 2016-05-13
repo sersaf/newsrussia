@@ -27,10 +27,9 @@
             <div class="item">
                 <div class="col-xs-10 journal_image" >
 
-                    <h:outputLink styleClass="content_link" target="_blank">
+                    <h:outputLink styleClass="content_link" value="${flowExecutionUrl}&amp;_eventId=issue">
                         <p:graphicImage value="/ShowImage?index=#{rowIndex}" width="100%"/>
                     </h:outputLink>
-
 
                 </div>
                 <div class="col-xs-2 action-list">
@@ -50,12 +49,11 @@
                 <div class="info col-xs-12">
                     <div class="journal_name">
                         <a id="journals_form:journalsList:0:journalName"
-                           name="journals_form:journalsList:0:journalName" href="" target="_blank" class="title">#{b.journalName}</a>
+                           name="journals_form:journalsList:0:journalName" href="" target="_blank" class="title">#{b.name}</a>
                     </div>
                     <div class="journal_info">
-                        <p><span>#{msg.genre}: </span>#{b.genreIdGenre}</p>
-                        <p><span>#{msg.last_publication}:</span>#{b.journalDateUpload}</p>
-                        <p><span>#{msg.last_issue}: </span>#{b.journalIssue}</p>
+                        <p><span>#{msg.genre}: </span>#{b.genreId}</p>
+                        <p><span>#{msg.last_publication}:</span>#{b.lastmodify}</p>
                     </div>
                 </div>
             </div>

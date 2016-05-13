@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="wps.newsrussia.entities.DigestIssues" table="digest_issues" schema="newsrussia">
+        <id name="id">
+            <column name="id" sql-type="bigint(20)"/>
+        </id>
+        <property name="issue">
+            <column name="issue" sql-type="bigint(20)"/>
+        </property>
+        <property name="title">
+            <column name="title" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="date"/>
+        </property>
+        <property name="path">
+            <column name="path" sql-type="varchar(80)" length="80" not-null="true"/>
+        </property>
+        <property name="keywords">
+            <column name="keywords" sql-type="varchar(1024)" length="1024" not-null="true"/>
+        </property>
+
+        <many-to-one name="digestId" column="digest_id" class="wps.newsrussia.entities.Digest"
+                     lazy="false" fetch="join"  not-null="true" />
+    </class>
+</hibernate-mapping>

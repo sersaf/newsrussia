@@ -2,16 +2,14 @@ package wps.newsrussia.entities;
 
 import java.sql.Date;
 
-/**
- * Created by sergejsafonov on 11.05.16.
- */
+
 public class Users {
     private long id;
     private String userLogin;
     private String userPass;
     private String userNickname;
     private String userEmail;
-    private int groupIdGroup;
+    private Group groupIdGroup;
     private Date userRegistered;
     private int userStatus;
     private String displayName;
@@ -56,11 +54,11 @@ public class Users {
         this.userEmail = userEmail;
     }
 
-    public int getGroupIdGroup() {
+    public Group getGroupIdGroup() {
         return groupIdGroup;
     }
 
-    public void setGroupIdGroup(int groupIdGroup) {
+    public void setGroupIdGroup(Group groupIdGroup) {
         this.groupIdGroup = groupIdGroup;
     }
 
@@ -96,17 +94,16 @@ public class Users {
         Users users = (Users) o;
 
         if (id != users.id) return false;
-        if (groupIdGroup != users.groupIdGroup) return false;
         if (userStatus != users.userStatus) return false;
         if (userLogin != null ? !userLogin.equals(users.userLogin) : users.userLogin != null) return false;
         if (userPass != null ? !userPass.equals(users.userPass) : users.userPass != null) return false;
         if (userNickname != null ? !userNickname.equals(users.userNickname) : users.userNickname != null) return false;
         if (userEmail != null ? !userEmail.equals(users.userEmail) : users.userEmail != null) return false;
+        if (groupIdGroup != null ? !groupIdGroup.equals(users.groupIdGroup) : users.groupIdGroup != null) return false;
         if (userRegistered != null ? !userRegistered.equals(users.userRegistered) : users.userRegistered != null)
             return false;
-        if (displayName != null ? !displayName.equals(users.displayName) : users.displayName != null) return false;
+        return displayName != null ? displayName.equals(users.displayName) : users.displayName == null;
 
-        return true;
     }
 
     @Override
@@ -116,7 +113,7 @@ public class Users {
         result = 31 * result + (userPass != null ? userPass.hashCode() : 0);
         result = 31 * result + (userNickname != null ? userNickname.hashCode() : 0);
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
-        result = 31 * result + groupIdGroup;
+        result = 31 * result + (groupIdGroup != null ? groupIdGroup.hashCode() : 0);
         result = 31 * result + (userRegistered != null ? userRegistered.hashCode() : 0);
         result = 31 * result + userStatus;
         result = 31 * result + (displayName != null ? displayName.hashCode() : 0);

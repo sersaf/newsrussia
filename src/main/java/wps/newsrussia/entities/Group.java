@@ -1,7 +1,7 @@
 package wps.newsrussia.entities;
 
 /**
- * Created by sergejsafonov on 11.05.16.
+ * Created by sergejsafonov on 12.05.16.
  */
 public class Group {
     private int idGroup;

@@ -5,14 +5,33 @@
 <hibernate-mapping>
 
     <class name="wps.newsrussia.entities.Users" table="users" schema="newsrussia">
-        <id name="id" column="ID"/>
-        <property name="userLogin" column="user_login"/>
-        <property name="userPass" column="user_pass"/>
-        <property name="userNickname" column="user_nickname"/>
-        <property name="userEmail" column="user_email"/>
-        <property name="groupIdGroup" column="group_id_group"/>
-        <property name="userRegistered" column="user_registered"/>
-        <property name="userStatus" column="user_status"/>
-        <property name="displayName" column="display_name"/>
+        <id name="id">
+            <column name="ID" sql-type="bigint(20) unsigned"/>
+        </id>
+        <property name="userLogin">
+            <column name="user_login" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="userPass">
+            <column name="user_pass" sql-type="varchar(255)"/>
+        </property>
+        <property name="userNickname">
+            <column name="user_nickname" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="userEmail">
+            <column name="user_email" sql-type="varchar(100)" length="100"/>
+        </property>
+
+        <many-to-one name="groupIdGroup" column="group_id_group" class="wps.newsrussia.entities.Group"
+                     lazy="false" fetch="join"  not-null="true" />
+
+        <property name="userRegistered">
+            <column name="user_registered" sql-type="date"/>
+        </property>
+        <property name="userStatus">
+            <column name="user_status" sql-type="int(11)"/>
+        </property>
+        <property name="displayName">
+            <column name="display_name" sql-type="varchar(250)" length="250"/>
+        </property>
     </class>
 </hibernate-mapping>

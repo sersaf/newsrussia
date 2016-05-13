@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="wps.newsrussia.entities.Digest" table="digest" schema="newsrussia">
+        <id name="id">
+            <column name="id" sql-type="bigint(20)"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="lastmodify">
+            <column name="lastmodify" sql-type="date" not-null="true"/>
+        </property>
+        <property name="startDate">
+            <column name="start_date" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="lang">
+            <column name="lang" sql-type="varchar(3)" length="3"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="tinyint(1)" not-null="true"/>
+        </property>
+
+        <many-to-one name="storageId" column="storage_id" class="wps.newsrussia.entities.Storage"
+                     lazy="false" fetch="join"  not-null="true" />
+
+
+        <many-to-one name="genreId" column="Genre_id" class="wps.newsrussia.entities.Genre"
+                     lazy="false" fetch="join"  not-null="true" />
+
+        <many-to-one name="digestCoverId" column="digest_cover_id" class="wps.newsrussia.entities.JournalCovers"
+                     lazy="false" fetch="join"  not-null="true" />
+
+    </class>
+</hibernate-mapping>

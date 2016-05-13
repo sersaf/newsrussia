@@ -10,315 +10,455 @@
       <schema id="1" name="newsrussia"/>
       <table id="2" parent="1" name="group"/>
       <table id="3" parent="1" name="users"/>
-      <table id="4" parent="1" name="audio_wps"/>
-      <table id="5" parent="1" name="issue_wps"/>
-      <table id="6" parent="1" name="journal_wps"/>
-      <table id="7" parent="1" name="video_wps"/>
-      <table id="8" parent="1" name="Genre"/>
-      <table id="9" parent="1" name="storage"/>
-      <column id="10" parent="2" name="id_group">
+      <table id="4" parent="1" name="Genre"/>
+      <table id="5" parent="1" name="storage"/>
+      <table id="6" parent="1" name="audio"/>
+      <table id="7" parent="1" name="digest"/>
+      <table id="8" parent="1" name="digest_cover"/>
+      <table id="9" parent="1" name="digest_issues"/>
+      <table id="10" parent="1" name="journal_covers"/>
+      <table id="11" parent="1" name="journal_issues"/>
+      <table id="12" parent="1" name="journals"/>
+      <table id="13" parent="1" name="video"/>
+      <column id="14" parent="2" name="id_group">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="11" parent="2" name="group_name">
+      <column id="15" parent="2" name="group_name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="12" parent="2" name="PRIMARY">
+      <key id="16" parent="2" name="PRIMARY">
         <columns>id_group</columns>
         <primary>1</primary>
       </key>
-      <column id="13" parent="3" name="ID">
+      <column id="17" parent="3" name="ID">
         <mandatory>1</mandatory>
         <data-type>bigint(20) unsigned</data-type>
       </column>
-      <column id="14" parent="3" name="user_login">
+      <column id="18" parent="3" name="user_login">
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="15" parent="3" name="user_pass">
+      <column id="19" parent="3" name="user_pass">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="16" parent="3" name="user_nickname">
+      <column id="20" parent="3" name="user_nickname">
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="17" parent="3" name="user_email">
+      <column id="21" parent="3" name="user_email">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="18" parent="3" name="group_id_group">
+      <column id="22" parent="3" name="group_id_group">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="19" parent="3" name="user_registered">
+      <column id="23" parent="3" name="user_registered">
         <mandatory>1</mandatory>
         <data-type>date</data-type>
       </column>
-      <column id="20" parent="3" name="user_status">
+      <column id="24" parent="3" name="user_status">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="21" parent="3" name="display_name">
+      <column id="25" parent="3" name="display_name">
         <mandatory>1</mandatory>
         <data-type>varchar(250)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <index id="22" parent="3" name="fk_users_group_idx">
+      <index id="26" parent="3" name="fk_users_group_idx">
         <columns>group_id_group</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="23" parent="3" name="PRIMARY">
+      <key id="27" parent="3" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="24" parent="3" name="fk_users_group">
+      <foreign-key id="28" parent="3" name="fk_users_group">
         <columns>group_id_group</columns>
         <ref-key>~.group.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="25" parent="4" name="id_radio_wps">
+      <column id="29" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="30" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="31" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="32" parent="5" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="26" parent="4" name="audio_date">
+      <column id="33" parent="5" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="34" parent="5" name="path">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="35" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="36" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="37" parent="6" name="title">
+        <data-type>varchar(512)</data-type>
+      </column>
+      <column id="38" parent="6" name="date">
         <mandatory>1</mandatory>
         <data-type>date</data-type>
       </column>
-      <column id="27" parent="4" name="audio_type">
+      <column id="39" parent="6" name="type">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="28" parent="4" name="id_storage">
+      <column id="40" parent="6" name="path">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="41" parent="6" name="description">
+        <data-type>varchar(2048)</data-type>
+      </column>
+      <column id="42" parent="6" name="annotation">
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="43" parent="6" name="Genre_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="44" parent="6" name="storage_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="29" parent="4" name="storage_id_idx">
-        <columns>id_storage</columns>
+      <index id="45" parent="6" name="fk_audio_Genre1_idx">
+        <columns>Genre_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="30" parent="4" name="PRIMARY">
-        <columns>id_radio_wps</columns>
+      <index id="46" parent="6" name="fk_audio_storage1_idx">
+        <columns>storage_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="47" parent="6" name="PRIMARY">
+        <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="31" parent="4" name="id_storage">
-        <columns>id_storage</columns>
+      <foreign-key id="48" parent="6" name="fk_audio_Genre1">
+        <columns>Genre_id</columns>
+        <ref-key>~.Genre.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="49" parent="6" name="fk_audio_storage1">
+        <columns>storage_id</columns>
         <ref-key>~.storage.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="32" parent="5" name="id_issue_wps">
+      <column id="50" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="33" parent="5" name="issue_name">
+      <column id="51" parent="7" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="34" parent="5" name="issue_lastmodify">
+      <column id="52" parent="7" name="lastmodify">
         <data-type>date</data-type>
       </column>
-      <column id="35" parent="5" name="issue_lang">
+      <column id="53" parent="7" name="start_date">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="54" parent="7" name="lang">
         <mandatory>1</mandatory>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="36" parent="5" name="issue_status">
-        <mandatory>1</mandatory>
+      <column id="55" parent="7" name="status">
         <data-type>tinyint(1)</data-type>
       </column>
-      <column id="37" parent="5" name="issue_start">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
-      </column>
-      <column id="38" parent="5" name="issue_path">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
-      </column>
-      <column id="39" parent="5" name="Genre_id_genre">
-        <mandatory>1</mandatory>
-        <data-type>bigint(20)</data-type>
-      </column>
-      <column id="40" parent="5" name="storage_id_storage">
+      <column id="56" parent="7" name="storage_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="41" parent="5" name="issue_cover">
-        <data-type>longblob</data-type>
+      <column id="57" parent="7" name="Genre_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
       </column>
-      <index id="42" parent="5" name="fk_issue_wps_Genre1_idx">
-        <columns>Genre_id_genre</columns>
+      <column id="58" parent="7" name="digest_cover_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="59" parent="7" name="fk_digest_digest_cover1_idx">
+        <columns>digest_cover_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="43" parent="5" name="fk_issue_wps_storage1_idx">
-        <columns>storage_id_storage</columns>
+      <index id="60" parent="7" name="fk_digest_Genre1_idx">
+        <columns>Genre_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="44" parent="5" name="PRIMARY">
-        <columns>id_issue_wps</columns>
+      <index id="61" parent="7" name="fk_digest_storage1_idx">
+        <columns>storage_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="62" parent="7" name="PRIMARY">
+        <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="45" parent="5" name="fk_issue_wps_Genre1">
-        <columns>Genre_id_genre</columns>
+      <foreign-key id="63" parent="7" name="fk_digest_digest_cover1">
+        <columns>digest_cover_id</columns>
+        <ref-key>~.digest_cover.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="64" parent="7" name="fk_digest_Genre1">
+        <columns>Genre_id</columns>
         <ref-key>~.Genre.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="46" parent="5" name="fk_issue_wps_storage1">
-        <columns>storage_id_storage</columns>
+      <foreign-key id="65" parent="7" name="fk_digest_storage1">
+        <columns>storage_id</columns>
         <ref-key>~.storage.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="47" parent="6" name="id_journal">
+      <column id="66" parent="8" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="48" parent="6" name="journal_name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
+      <column id="67" parent="8" name="img">
+        <data-type>varchar(80)</data-type>
       </column>
-      <column id="49" parent="6" name="journal_link_to_pdf">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="50" parent="6" name="journal_link_to_txt">
-        <data-type>varchar(45)</data-type>
-      </column>
-      <column id="51" parent="6" name="journal_date_upload">
-        <data-type>date</data-type>
-      </column>
-      <column id="52" parent="6" name="journal_date">
-        <data-type>date</data-type>
-      </column>
-      <column id="53" parent="6" name="journal_issue">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="54" parent="6" name="journal_cover">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="55" parent="6" name="Genre_id_genre">
-        <mandatory>1</mandatory>
-        <data-type>bigint(20)</data-type>
-      </column>
-      <column id="56" parent="6" name="storage_id_storage">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="57" parent="6" name="fk_journal_wps_Genre1_idx">
-        <columns>Genre_id_genre</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <index id="58" parent="6" name="fk_journal_wps_storage1_idx">
-        <columns>storage_id_storage</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="59" parent="6" name="PRIMARY">
-        <columns>id_journal</columns>
+      <key id="68" parent="8" name="PRIMARY">
+        <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="60" parent="6" name="fk_journal_wps_Genre1">
-        <columns>Genre_id_genre</columns>
+      <column id="69" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="70" parent="9" name="issue">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="71" parent="9" name="title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="72" parent="9" name="date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="73" parent="9" name="path">
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="74" parent="9" name="keywords">
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="75" parent="9" name="digest_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="76" parent="9" name="fk_digest_issues_digest1_idx">
+        <columns>digest_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="77" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="78" parent="9" name="fk_digest_issues_digest1">
+        <columns>digest_id</columns>
+        <ref-key>~.digest.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="79" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="80" parent="10" name="img">
+        <data-type>varchar(80)</data-type>
+      </column>
+      <key id="81" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="82" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="83" parent="11" name="issue">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="84" parent="11" name="title">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="85" parent="11" name="date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="86" parent="11" name="link_to_pdf">
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="87" parent="11" name="link_to_txt">
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="88" parent="11" name="keywords">
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="89" parent="11" name="journals_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="90" parent="11" name="fk_journal_issues_journals1_idx">
+        <columns>journals_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="91" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="92" parent="11" name="fk_journal_issues_journals1">
+        <columns>journals_id</columns>
+        <ref-key>~.journals.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="93" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="94" parent="12" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="95" parent="12" name="start_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="96" parent="12" name="storage_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="97" parent="12" name="lastmodify">
+        <data-type>date</data-type>
+      </column>
+      <column id="98" parent="12" name="Genre_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="99" parent="12" name="journal_covers_id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <index id="100" parent="12" name="fk_journals_Genre1_idx">
+        <columns>Genre_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="101" parent="12" name="fk_journals_journal_covers1_idx">
+        <columns>journal_covers_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="102" parent="12" name="fk_journals_storage1_idx">
+        <columns>storage_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="103" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="104" parent="12" name="fk_journals_Genre1">
+        <columns>Genre_id</columns>
         <ref-key>~.Genre.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="61" parent="6" name="fk_journal_wps_storage1">
-        <columns>storage_id_storage</columns>
+      <foreign-key id="105" parent="12" name="fk_journals_journal_covers1">
+        <columns>journal_covers_id</columns>
+        <ref-key>~.journal_covers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="106" parent="12" name="fk_journals_storage1">
+        <columns>storage_id</columns>
         <ref-key>~.storage.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="62" parent="7" name="id_video_wps">
+      <column id="107" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="63" parent="7" name="video_name">
+      <column id="108" parent="13" name="title">
         <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
+        <data-type>varchar(512)</data-type>
       </column>
-      <column id="64" parent="7" name="video_date">
+      <column id="109" parent="13" name="date">
         <mandatory>1</mandatory>
         <data-type>date</data-type>
       </column>
-      <column id="65" parent="7" name="video_type">
+      <column id="110" parent="13" name="type">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="66" parent="7" name="video_description">
+      <column id="111" parent="13" name="description">
         <data-type>varchar(2048)</data-type>
       </column>
-      <column id="67" parent="7" name="video_annotation">
-        <data-type>varchar(200)</data-type>
+      <column id="112" parent="13" name="annotation">
+        <data-type>varchar(1024)</data-type>
       </column>
-      <column id="68" parent="7" name="video_path">
+      <column id="113" parent="13" name="path">
         <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
+        <data-type>varchar(100)</data-type>
       </column>
-      <column id="69" parent="7" name="Genre_id_genre">
+      <column id="114" parent="13" name="Genre_id">
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <column id="70" parent="7" name="storage_id_storage">
+      <column id="115" parent="13" name="storage_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="71" parent="7" name="fk_video_wps_Genre1_idx">
-        <columns>Genre_id_genre</columns>
+      <index id="116" parent="13" name="fk_video_Genre1_idx">
+        <columns>Genre_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="72" parent="7" name="fk_video_wps_storage1_idx">
-        <columns>storage_id_storage</columns>
+      <index id="117" parent="13" name="fk_video_storage1_idx">
+        <columns>storage_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="73" parent="7" name="PRIMARY">
-        <columns>id_video_wps</columns>
+      <key id="118" parent="13" name="PRIMARY">
+        <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="74" parent="7" name="fk_video_wps_Genre1">
-        <columns>Genre_id_genre</columns>
+      <foreign-key id="119" parent="13" name="fk_video_Genre1">
+        <columns>Genre_id</columns>
         <ref-key>~.Genre.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="75" parent="7" name="fk_video_wps_storage1">
-        <columns>storage_id_storage</columns>
+      <foreign-key id="120" parent="13" name="fk_video_storage1">
+        <columns>storage_id</columns>
         <ref-key>~.storage.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="76" parent="8" name="id_genre">
-        <mandatory>1</mandatory>
-        <data-type>bigint(20)</data-type>
-      </column>
-      <column id="77" parent="8" name="genre_name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="78" parent="8" name="parent">
-        <data-type>bigint(20)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <key id="79" parent="8" name="PRIMARY">
-        <columns>id_genre</columns>
-        <primary>1</primary>
-      </key>
-      <column id="80" parent="9" name="id_storage">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="81" parent="9" name="issue_type">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
-      </column>
-      <key id="82" parent="9" name="PRIMARY">
-        <columns>id_storage</columns>
-        <primary>1</primary>
-      </key>
     </database-model>
   </data-source>
   <data-source name="sessionFactory/Hibernate" uuid="2e33c492-0a5f-4fd5-b187-3df870bb3f53">

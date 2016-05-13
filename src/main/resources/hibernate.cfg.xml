@@ -9,13 +9,18 @@
     <property name="hibernate.show_sql">true</property>
     <property name="connection.url">jdbc:mysql://localhost:3306/newsrussia</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping resource="wps/newsrussia/entities/Genre.hbm.xml"/>
     <mapping resource="wps/newsrussia/entities/Group.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/Storage.hbm.xml"/>
     <mapping resource="wps/newsrussia/entities/Users.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/AudioWps.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/IssueWps.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/JournalWps.hbm.xml"/>
-    <mapping resource="wps/newsrussia/entities/VideoWps.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Genre.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Storage.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Audio.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Digest.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/DigestCover.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/DigestIssues.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/JournalCovers.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/JournalIssues.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Journals.hbm.xml"/>
+    <mapping resource="wps/newsrussia/entities/Video.hbm.xml"/>
+
   </session-factory>
 </hibernate-configuration>

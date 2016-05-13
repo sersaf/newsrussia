@@ -1,9 +1,9 @@
 package wps.newsrussia.entities;
 
 
-public class Genre {
+public class DigestCover {
     private long id;
-    private String name;
+    private String img;
 
     public long getId() {
         return id;
@@ -13,12 +13,12 @@ public class Genre {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getImg() {
+        return img;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override
@@ -26,10 +26,10 @@ public class Genre {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Genre genre = (Genre) o;
+        DigestCover that = (DigestCover) o;
 
-        if (id != genre.id) return false;
-        if (name != null ? !name.equals(genre.name) : genre.name != null) return false;
+        if (id != that.id) return false;
+        if (img != null ? !img.equals(that.img) : that.img != null) return false;
 
         return true;
     }
@@ -37,12 +37,7 @@ public class Genre {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (img != null ? img.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
