@@ -9,13 +9,17 @@
         http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
         ">
 
+    <flow-executor id="loginFlowExecutor"
+                   flow-registry="flowRegistry" />
+
+
     <flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
-        <flow-location-pattern value="../flows/main.xml" />
-        <flow-location-pattern value="../flows/journal-issue.xml" />
+        <flow-location-pattern value="*.xml" />
     </flow-registry>
 
 
-    <faces:flow-builder-services id="flowBuilderServices" development="true" />
+
+    <faces:flow-builder-services id="flowBuilderServices" development="true" view-factory-creator="flowViewResolver"  />
 
     <!-- A listener to create and release a FacesContext -->
     <beans:bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener"/>
@@ -26,6 +30,14 @@
         </flow-execution-listeners>
     </flow-executor>
 
+    <beans:bean id="flowViewResolver"
+                class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <beans:property name="viewResolvers">
+            <beans:list>
+                <beans:ref bean="viewResolver" />
+            </beans:list>
+        </beans:property>
+    </beans:bean>
 
 
 

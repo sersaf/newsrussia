@@ -5,22 +5,21 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
       start-state="main">
 
-    <view-state id="main">
-        <transition on="searchByText">
-            <evaluate expression="newsrussiaFacade.searchJournalsByText()" />
-        </transition>
 
-        <transition on="issue" to="journalissue"/>
+    <view-state id="main">
+        <transition on="showissues" to="createissueFlow" />
+        <transition on="issue" to="journalissue" />
+    </view-state>
+
+    <subflow-state id="createissueFlow" subflow="journalissue">
+    </subflow-state>
+
+    <view-state id="journalissue">
 
     </view-state>
 
 
-   <view-state id="journalissue" view="../views/journalissue.xhtml">
 
-   </view-state>
-    <subflow-state id="journalissueFlow" subflow="journal-issue.xml">
-
-    </subflow-state>
 
 
 </flow>

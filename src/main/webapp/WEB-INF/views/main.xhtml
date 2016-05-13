@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <f:view>
-    <ui:composition template="/WEB-INF/templates/newsrussia.xhtml">
+    <ui:composition template="/WEB-INF/templates/journals.xhtml">
 
 
 <ui:define name="title">
@@ -27,9 +27,10 @@
             <div class="item">
                 <div class="col-xs-10 journal_image" >
 
-                    <h:outputLink styleClass="content_link" value="${flowExecutionUrl}&amp;_eventId=issue">
+                    <h:outputLink styleClass="content_link" value="${flowExecutionUrl}&amp;_eventId=showissues">
                         <p:graphicImage value="/ShowImage?index=#{rowIndex}" width="100%"/>
                     </h:outputLink>
+
 
                 </div>
                 <div class="col-xs-2 action-list">
